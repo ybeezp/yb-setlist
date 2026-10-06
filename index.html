@@ -6,9 +6,7 @@
 <title>YB SETLIST ARCHIVE</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -26,9 +24,7 @@ header{
   letter-spacing:-.5px;
 }
 
-header b{
-  color:#ff3045;
-}
+header b{color:#ff3045}
 
 main{
   max-width:760px;
@@ -63,9 +59,7 @@ main{
   letter-spacing:-2px;
 }
 
-.red{
-  color:#ff3045;
-}
+.red{color:#ff3045}
 
 .hero p{
   color:#8d8d8d;
@@ -74,7 +68,7 @@ main{
   margin:24px 0 0;
 }
 
-/* 통계 */
+/* 상단 통계 */
 
 .stats{
   display:grid;
@@ -117,9 +111,7 @@ main{
   outline:none;
 }
 
-.search::placeholder{
-  color:#777;
-}
+.search::placeholder{color:#777}
 
 /* 필터 */
 
@@ -143,6 +135,7 @@ main{
   padding:12px 18px;
   border-radius:30px;
   font-size:15px;
+  cursor:pointer;
 }
 
 .filters button.on{
@@ -151,12 +144,65 @@ main{
   color:white;
 }
 
-/* 공연 목록 */
+/* 제목 */
 
 .section-title{
   font-size:27px;
   margin:0 0 24px;
 }
+
+/* 곡별 통계 */
+
+.song-stats-section{
+  margin-bottom:55px;
+}
+
+.song-stats{
+  border-top:1px solid #292929;
+}
+
+.song-stat{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:16px 2px;
+  border-bottom:1px solid #292929;
+}
+
+.song-rank{
+  width:32px;
+  flex:none;
+  color:#666;
+  font-size:13px;
+  font-weight:700;
+}
+
+.song-stat-name{
+  flex:1;
+  font-size:16px;
+  line-height:1.4;
+}
+
+.song-stat-count{
+  flex:none;
+  color:#ff3045;
+  font-size:15px;
+  font-weight:700;
+}
+
+.stats-more{
+  width:100%;
+  margin-top:16px;
+  padding:14px;
+  border:1px solid #383838;
+  border-radius:30px;
+  background:#171717;
+  color:#aaa;
+  font-size:15px;
+  cursor:pointer;
+}
+
+/* 공연 목록 */
 
 .card{
   border:1px solid #292929;
@@ -181,6 +227,7 @@ main{
 .card h3{
   margin:0 0 9px;
   font-size:20px;
+  line-height:1.4;
 }
 
 .card p{
@@ -190,7 +237,7 @@ main{
   line-height:1.6;
 }
 
-/* 상세 */
+/* 공연 상세 */
 
 #detail{
   display:none;
@@ -225,7 +272,7 @@ main{
   margin-bottom:30px;
 }
 
-/* 공연 대표사진 */
+/* 공연 사진 */
 
 .concert-img{
   display:block;
@@ -234,6 +281,8 @@ main{
   border-radius:14px;
   margin:0 0 40px;
 }
+
+/* 셋리스트 */
 
 .set-title{
   font-size:25px;
@@ -358,6 +407,28 @@ footer{
 
   </div>
 
+  <!-- 곡별 통계 -->
+
+  <section class="song-stats-section">
+
+    <h2 class="section-title">
+      곡별 공연 횟수
+    </h2>
+
+    <div id="song-stats" class="song-stats"></div>
+
+    <button
+      id="stats-more"
+      class="stats-more"
+      onclick="toggleSongStats()"
+    >
+      전체 보기
+    </button>
+
+  </section>
+
+  <!-- 공연 기록 -->
+
   <h2 class="section-title">
     공연 기록
   </h2>
@@ -366,6 +437,8 @@ footer{
 
 </section>
 
+
+<!-- 공연 상세 -->
 
 <section id="detail">
 
@@ -410,7 +483,7 @@ footer{
 <script>
 
 /*
-데이터 형식
+데이터 구조
 
 [
   "날짜",
@@ -419,15 +492,13 @@ footer{
   "장소",
   "분류",
   "사진 파일명",
-  ["곡1","곡2"...]
+  ["셋리스트"]
 ]
-
-사진이 없으면 사진 파일명에 "" 입력
 */
 
 const data=[
 
-/* 1월 3일 강릉 */
+/* 강릉 */
 
 [
   "2026.01.03",
@@ -463,7 +534,7 @@ const data=[
   ]
 ],
 
-/* 1월 6일 홍대 */
+/* 너트30 */
 
 [
   "2026.01.06",
@@ -485,7 +556,7 @@ const data=[
   ]
 ],
 
-/* 1월 10일 - 11일 원주 */
+/* 원주 */
 
 [
   "2026.01.10 - 01.11",
@@ -499,11 +570,11 @@ const data=[
     "꿈꾸는 소녀",
     "박하사탕",
     "사랑two",
-    "너를 보내고",
+    "너를보내고",
     "가을 우체국 앞에서",
     "먼 훗날",
     "타잔",
-    "가리지좀 마",
+    "가리지좀마",
     "나는 나비",
     "Rebellion",
     "Stormborn",
@@ -519,7 +590,7 @@ const data=[
   ]
 ],
 
-/* 1월 17일 - 18일 포항 */
+/* 포항 */
 
 [
   "2026.01.17 - 01.18",
@@ -555,7 +626,7 @@ const data=[
   ]
 ],
 
-/* 1월 24일 - 25일 대전 */
+/* 대전 */
 
 [
   "2026.01.24 - 01.25",
@@ -591,7 +662,7 @@ const data=[
   ]
 ],
 
-/* 1월 31일 - 2월 1일 의정부 */
+/* 의정부 */
 
 [
   "2026.01.31 - 02.01",
@@ -605,11 +676,11 @@ const data=[
     "꿈꾸는 소녀",
     "박하사탕",
     "사랑two",
-    "너를 보내고",
+    "너를보내고",
     "가을 우체국 앞에서",
     "먼 훗날",
     "타잔",
-    "가리지좀 마",
+    "가리지좀마",
     "나는 나비",
     "Rebellion",
     "Stormborn",
@@ -625,7 +696,7 @@ const data=[
   ]
 ],
 
-/* 9월 17일 계룡 */
+/* 계룡 */
 
 [
   "2026.09.17",
@@ -649,38 +720,87 @@ const data=[
 ];
 
 
+/* 기본 변수 */
+
 let type="전체";
+let showAllSongStats=false;
 
 const list=document.querySelector("#list");
 const q=document.querySelector("#q");
+
 const home=document.querySelector("#home");
 const detail=document.querySelector("#detail");
 
 const dd=document.querySelector("#dd");
 const dt=document.querySelector("#dt");
 const dm=document.querySelector("#dm");
-const concertImg=document.querySelector("#concert-img");
-const songs=document.querySelector("#songs");
 
-const cc=document.querySelector("#cc");
-const sc=document.querySelector("#sc");
+const concertImg=
+  document.querySelector("#concert-img");
 
+const songs=
+  document.querySelector("#songs");
+
+const cc=
+  document.querySelector("#cc");
+
+const sc=
+  document.querySelector("#sc");
+
+const songStats=
+  document.querySelector("#song-stats");
+
+const statsMore=
+  document.querySelector("#stats-more");
+
+
+/* 날짜를 숫자로 변환 */
+
+function getDateValue(dateText){
+
+  const match=
+    dateText.match(
+      /(\d{4})\.(\d{2})\.(\d{2})/
+    );
+
+  if(!match){
+    return 0;
+  }
+
+  return new Date(
+    Number(match[1]),
+    Number(match[2])-1,
+    Number(match[3])
+  ).getTime();
+
+}
+
+
+/* 공연 목록 그리기 */
 
 function draw(){
 
-  const k=q.value.toLowerCase();
+  const k=
+    q.value.toLowerCase();
 
-list.innerHTML="";
+  list.innerHTML="";
 
-const sortedData = data
-  .map((x,i)=>({x,i}))
-  .sort((a,b)=>{
-    const dateA=a.x[0].slice(0,10).replaceAll(".","-");
-    const dateB=b.x[0].slice(0,10).replaceAll(".","-");
-    return dateB.localeCompare(dateA);
-  });
+  /*
+  데이터가 코드상 어디에 있든
+  화면에서는 최신 공연부터 자동 정렬
+  */
 
-sortedData.forEach(({x,i})=>{
+  const sortedData=
+    data
+      .map((x,i)=>({x,i}))
+      .sort(
+        (a,b)=>
+          getDateValue(b.x[0])-
+          getDateValue(a.x[0])
+      );
+
+
+  sortedData.forEach(({x,i})=>{
 
     const searchText=
       (
@@ -692,6 +812,7 @@ sortedData.forEach(({x,i})=>{
         x[6].join(" ")
       ).toLowerCase();
 
+
     if(
       (type==="전체" || x[4]===type)
       &&
@@ -699,7 +820,11 @@ sortedData.forEach(({x,i})=>{
     ){
 
       list.innerHTML+=`
-        <div class="card" onclick="openC(${i})">
+
+        <div
+          class="card"
+          onclick="openC(${i})"
+        >
 
           <div class="date">
             ${x[0]}
@@ -714,19 +839,25 @@ sortedData.forEach(({x,i})=>{
           </p>
 
         </div>
+
       `;
 
     }
 
   });
 
+
   if(!list.innerHTML){
+
     list.innerHTML=
       '<p class="empty">검색 결과가 없습니다.</p>';
+
   }
 
 }
 
+
+/* 공연 종류 필터 */
 
 function ft(t,b){
 
@@ -734,7 +865,9 @@ function ft(t,b){
 
   document
     .querySelectorAll(".filters button")
-    .forEach(x=>x.classList.remove("on"));
+    .forEach(
+      x=>x.classList.remove("on")
+    );
 
   b.classList.add("on");
 
@@ -742,6 +875,8 @@ function ft(t,b){
 
 }
 
+
+/* 공연 상세 */
 
 function openC(i){
 
@@ -756,22 +891,29 @@ function openC(i){
   dm.innerHTML=
     `${x[2]}<br>${x[3]} · ${x[4]}`;
 
-  /* 대표사진 */
+
+  /* 공연 사진 */
 
   if(x[5]){
+
     concertImg.src=x[5];
     concertImg.alt=x[1]+" 대표 사진";
     concertImg.style.display="block";
+
   }else{
+
     concertImg.removeAttribute("src");
     concertImg.style.display="none";
+
   }
+
 
   /* 셋리스트 */
 
   songs.innerHTML=
     x[6]
       .map((s,n)=>`
+
         <div class="song">
 
           <div class="song-num">
@@ -783,13 +925,17 @@ function openC(i){
           </div>
 
         </div>
+
       `)
       .join("");
+
 
   window.scrollTo(0,0);
 
 }
 
+
+/* 공연 상세 → 메인 */
 
 function back(){
 
@@ -801,12 +947,135 @@ function back(){
 }
 
 
+/* 곡별 공연 횟수 */
+
+function makeSongStats(){
+
+  const counts={};
+
+
+  data.forEach(concert=>{
+
+    /*
+    같은 공연에서 같은 곡이
+    두 번 입력되어 있어도 1회로 계산
+    */
+
+    const uniqueSongs=
+      new Set(concert[6]);
+
+
+    uniqueSongs.forEach(song=>{
+
+      if(!counts[song]){
+        counts[song]=0;
+      }
+
+      counts[song]++;
+
+    });
+
+  });
+
+
+  /*
+  1. 공연 횟수 많은 순
+  2. 같은 횟수면 곡명 순
+  */
+
+  const ranking=
+    Object.entries(counts)
+      .sort((a,b)=>{
+
+        if(b[1]!==a[1]){
+          return b[1]-a[1];
+        }
+
+        return a[0].localeCompare(
+          b[0],
+          "ko"
+        );
+
+      });
+
+
+  /*
+  기본은 TOP 10
+  전체보기 누르면 전곡
+  */
+
+  const visible=
+    showAllSongStats
+      ? ranking
+      : ranking.slice(0,10);
+
+
+  songStats.innerHTML=
+    visible
+      .map(([song,count],index)=>`
+
+        <div class="song-stat">
+
+          <div class="song-rank">
+            ${String(index+1).padStart(2,"0")}
+          </div>
+
+          <div class="song-stat-name">
+            ${song}
+          </div>
+
+          <div class="song-stat-count">
+            ${count}회
+          </div>
+
+        </div>
+
+      `)
+      .join("");
+
+
+  if(ranking.length<=10){
+
+    statsMore.style.display="none";
+
+  }else{
+
+    statsMore.style.display="block";
+
+    statsMore.innerText=
+      showAllSongStats
+        ? "접기"
+        : `전체 보기 (${ranking.length}곡)`;
+
+  }
+
+}
+
+
+/* 곡별 통계 전체보기 */
+
+function toggleSongStats(){
+
+  showAllSongStats=
+    !showAllSongStats;
+
+  makeSongStats();
+
+}
+
+
+/* 검색 */
+
 q.oninput=draw;
 
 
-/* 통계 */
+/* 등록 공연 */
 
-cc.innerText=data.length;
+cc.innerText=
+  data.length;
+
+
+/* 서로 다른 수록 곡 수 */
 
 sc.innerText=
   new Set(
@@ -814,6 +1083,9 @@ sc.innerText=
   ).size;
 
 
+/* 최초 실행 */
+
+makeSongStats();
 draw();
 
 </script>
