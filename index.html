@@ -163,7 +163,37 @@ main{
   color:#ff3045;
   font-size:26px;
 }
+/* 월별 필터 */
 
+.month-filters{
+  display:flex;
+  gap:8px;
+  overflow-x:auto;
+  padding:0 0 28px;
+  scrollbar-width:none;
+}
+
+.month-filters::-webkit-scrollbar{
+  display:none;
+}
+
+.month-filters button{
+  flex:none;
+  border:1px solid #383838;
+  background:#171717;
+  color:#aaa;
+  padding:11px 17px;
+  border-radius:30px;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.month-filters button.on{
+  background:#ff3045;
+  border-color:#ff3045;
+  color:white;
+}
+  
 /* 공연 목록 */
 
 .section-title{
@@ -484,10 +514,12 @@ footer{
   </div>
 
   <h2 class="section-title">
-    공연 기록
-  </h2>
+  공연 기록
+</h2>
 
-  <div id="list"></div>
+<div id="monthFilters" class="month-filters"></div>
+
+<div id="list"></div>
 
 </section>
 
@@ -1721,6 +1753,7 @@ data.sort((a,b)=>dateKey(b)-dateKey(a));
 
 
 let type="전체";
+let month="전체";
 
 const home=document.querySelector("#home");
 const detail=document.querySelector("#detail");
@@ -1729,6 +1762,7 @@ const songDetail=document.querySelector("#songDetail");
 
 const list=document.querySelector("#list");
 const q=document.querySelector("#q");
+const monthFilters=document.querySelector("#monthFilters");
 
 const dd=document.querySelector("#dd");
 const dt=document.querySelector("#dt");
@@ -1755,6 +1789,67 @@ function hideAll(){
 }
 
 
+/* 월 버튼 자동 생성 */
+
+function makeMonthFilters(){
+
+  const months=[
+    ...new Set(
+      data.map(x=>{
+
+        const m=x[0].match(/^\d{4}\.(\d{2})/);
+
+        return m
+          ? Number(m[1])
+          : null;
+
+      }).filter(Boolean)
+    )
+  ].sort((a,b)=>a-b);
+
+
+  monthFilters.innerHTML=`
+
+    <button
+      class="${month==="전체" ? "on" : ""}"
+      onclick="fm('전체',this)"
+    >
+      전체
+    </button>
+
+    ${months.map(m=>`
+
+      <button
+        class="${month===m ? "on" : ""}"
+        onclick="fm(${m},this)"
+      >
+        ${m}월
+      </button>
+
+    `).join("")}
+
+  `;
+
+}
+
+
+/* 월 선택 */
+
+function fm(m,b){
+
+  month=m;
+
+  document
+    .querySelectorAll(".month-filters button")
+    .forEach(x=>x.classList.remove("on"));
+
+  b.classList.add("on");
+
+  draw();
+
+}
+
+
 /* 메인 공연 목록 */
 
 function draw(){
@@ -1774,8 +1869,20 @@ function draw(){
       x[6].join(" ")
     ).toLowerCase();
 
+
+    const monthMatch=
+      x[0].match(/^\d{4}\.(\d{2})/);
+
+    const performanceMonth=
+      monthMatch
+        ? Number(monthMatch[1])
+        : null;
+
+
     if(
       (type==="전체" || x[4]===type)
+      &&
+      (month==="전체" || performanceMonth===month)
       &&
       searchText.includes(k)
     ){
@@ -1802,13 +1909,18 @@ function draw(){
 
   });
 
+
   if(!list.innerHTML){
+
     list.innerHTML=
       '<p class="empty">검색 결과가 없습니다.</p>';
+
   }
 
 }
 
+
+/* 공연 종류 선택 */
 
 function ft(t,b){
 
@@ -1822,8 +1934,7 @@ function ft(t,b){
 
   draw();
 
-}
-
+  }
 
 /* 공연 상세 */
 
@@ -2048,6 +2159,7 @@ sc.innerText=
 
 /* 시작 */
 
+makeMonthFilters();
 draw();
 
 </script>
