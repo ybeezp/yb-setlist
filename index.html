@@ -6,9 +6,7 @@
 <title>YB SETLIST ARCHIVE</title>
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
 
 body{
   margin:0;
@@ -26,9 +24,7 @@ header{
   letter-spacing:-.5px;
 }
 
-header b{
-  color:#ff3045;
-}
+header b{color:#ff3045}
 
 main{
   max-width:760px;
@@ -38,9 +34,7 @@ main{
 
 /* 메인 */
 
-.hero{
-  padding:55px 0 45px;
-}
+.hero{padding:55px 0 45px}
 
 .yb-logo{
   display:block;
@@ -63,9 +57,7 @@ main{
   letter-spacing:-2px;
 }
 
-.red{
-  color:#ff3045;
-}
+.red{color:#ff3045}
 
 .hero p{
   color:#8d8d8d;
@@ -74,7 +66,7 @@ main{
   margin:24px 0 0;
 }
 
-/* 통계 */
+/* 메인 통계 */
 
 .stats{
   display:grid;
@@ -89,7 +81,7 @@ main{
   padding:24px 10px;
 }
 
-.stat+ .stat{
+.stat+.stat{
   border-left:1px solid #292929;
 }
 
@@ -117,9 +109,7 @@ main{
   outline:none;
 }
 
-.search::placeholder{
-  color:#777;
-}
+.search::placeholder{color:#777}
 
 /* 필터 */
 
@@ -127,13 +117,11 @@ main{
   display:flex;
   gap:8px;
   overflow-x:auto;
-  padding:17px 0 40px;
+  padding:17px 0 25px;
   scrollbar-width:none;
 }
 
-.filters::-webkit-scrollbar{
-  display:none;
-}
+.filters::-webkit-scrollbar{display:none}
 
 .filters button{
   flex:none;
@@ -149,6 +137,27 @@ main{
   background:#ff3045;
   border-color:#ff3045;
   color:white;
+}
+
+/* 곡별 통계 버튼 */
+
+.song-stats-button{
+  width:100%;
+  border:1px solid #383838;
+  background:#101010;
+  color:#eee;
+  border-radius:13px;
+  padding:17px 18px;
+  margin:0 0 40px;
+  text-align:left;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.song-stats-button span{
+  float:right;
+  color:#ff3045;
 }
 
 /* 공연 목록 */
@@ -167,9 +176,7 @@ main{
   background:#0c0c0c;
 }
 
-.card:active{
-  background:#151515;
-}
+.card:active{background:#151515}
 
 .card .date{
   color:#ff3045;
@@ -190,9 +197,11 @@ main{
   line-height:1.6;
 }
 
-/* 상세 */
+/* 공통 서브페이지 */
 
-#detail{
+#detail,
+#songStats,
+#songDetail{
   display:none;
   padding-top:38px;
 }
@@ -212,7 +221,8 @@ main{
   margin-bottom:18px;
 }
 
-#detail h1{
+#detail h1,
+#songDetail h1{
   font-size:32px;
   line-height:1.25;
   margin:0 0 20px;
@@ -229,6 +239,8 @@ main{
   font-size:25px;
   margin-bottom:18px;
 }
+
+/* 셋리스트 */
 
 .song{
   display:flex;
@@ -248,16 +260,105 @@ main{
   font-weight:700;
 }
 
-.song-name{
-  font-size:17px;
+.song-name{font-size:17px}
+
+/* 곡별 통계 */
+
+.stats-header{
+  margin-bottom:30px;
+}
+
+.stats-header small{
+  color:#ff3045;
+  font-weight:700;
+  font-size:13px;
+}
+
+.stats-header h1{
+  font-size:35px;
+  margin:8px 0 10px;
+}
+
+.stats-header p{
+  color:#777;
+  line-height:1.6;
+  margin:0;
+}
+
+.song-rank{
+  display:flex;
+  align-items:center;
+  padding:18px 4px;
+  border-top:1px solid #292929;
+  cursor:pointer;
+}
+
+.song-rank:last-child{
+  border-bottom:1px solid #292929;
+}
+
+.rank{
+  width:42px;
+  color:#666;
+  font-size:14px;
+  font-weight:700;
+}
+
+.rank-name{
+  flex:1;
+  font-size:16px;
+  font-weight:600;
+  padding-right:10px;
+}
+
+.rank-count{
+  color:#ff3045;
+  font-size:15px;
+  font-weight:700;
+  white-space:nowrap;
+}
+
+/* 곡 상세 */
+
+.song-total{
+  color:#ff3045;
+  font-weight:700;
+  margin-bottom:35px;
+}
+
+.performance-item{
+  border-top:1px solid #292929;
+  padding:18px 2px;
+  cursor:pointer;
+}
+
+.performance-item:last-child{
+  border-bottom:1px solid #292929;
+}
+
+.performance-date{
+  color:#ff3045;
+  font-size:13px;
+  font-weight:700;
+  margin-bottom:7px;
+}
+
+.performance-title{
+  font-size:16px;
+  font-weight:600;
+  line-height:1.4;
+}
+
+.performance-place{
+  color:#777;
+  font-size:13px;
+  margin-top:6px;
 }
 
 .empty{
   color:#777;
   padding:20px 0;
 }
-
-/* 푸터 */
 
 footer{
   max-width:760px;
@@ -276,6 +377,8 @@ footer{
 </header>
 
 <main>
+
+<!-- 메인 -->
 
 <section id="home">
 
@@ -321,27 +424,20 @@ footer{
 
   <div class="filters">
 
-    <button class="on" onclick="ft('전체',this)">
-      전체
-    </button>
-
-    <button onclick="ft('단독공연',this)">
-      단독공연
-    </button>
-
-    <button onclick="ft('페스티벌',this)">
-      페스티벌
-    </button>
-
-    <button onclick="ft('대학축제',this)">
-      대학축제
-    </button>
-
-    <button onclick="ft('행사',this)">
-      행사
-    </button>
+    <button class="on" onclick="ft('전체',this)">전체</button>
+    <button onclick="ft('단독공연',this)">단독공연</button>
+    <button onclick="ft('페스티벌',this)">페스티벌</button>
+    <button onclick="ft('대학축제',this)">대학축제</button>
+    <button onclick="ft('행사',this)">행사</button>
 
   </div>
+
+  <button
+    class="song-stats-button"
+    onclick="openSongStats()">
+    곡별 공연 횟수
+    <span>→</span>
+  </button>
 
   <h2 class="section-title">
     공연 기록
@@ -352,29 +448,71 @@ footer{
 </section>
 
 
+<!-- 공연 상세 -->
+
 <section id="detail">
 
-  <div class="back" onclick="back()">
+  <div class="back" onclick="showHome()">
     ← 공연 목록
   </div>
 
-  <div
-    id="dd"
-    class="detail-date">
-  </div>
+  <div id="dd" class="detail-date"></div>
 
   <h1 id="dt"></h1>
 
-  <div
-    id="dm"
-    class="detail-info">
-  </div>
+  <div id="dm" class="detail-info"></div>
 
   <h2 class="set-title">
     SETLIST
   </h2>
 
   <div id="songs"></div>
+
+</section>
+
+
+<!-- 곡별 통계 -->
+
+<section id="songStats">
+
+  <div class="back" onclick="showHome()">
+    ← 메인으로
+  </div>
+
+  <div class="stats-header">
+
+    <small>2026 YB SETLIST</small>
+
+    <h1>곡별 공연 횟수</h1>
+
+    <p>
+      2026년 등록된 공연을 기준으로 계산합니다.<br>
+      곡을 누르면 해당 곡의 공연 기록을 볼 수 있습니다.
+    </p>
+
+  </div>
+
+  <div id="songRanking"></div>
+
+</section>
+
+
+<!-- 곡 상세 -->
+
+<section id="songDetail">
+
+  <div class="back" onclick="openSongStats()">
+    ← 곡별 통계
+  </div>
+
+  <h1 id="songDetailName"></h1>
+
+  <div
+    id="songDetailCount"
+    class="song-total">
+  </div>
+
+  <div id="songPerformances"></div>
 
 </section>
 
@@ -423,7 +561,7 @@ const data=[
 ],
 
 [
-  "2026.01.10 - 01. 11",
+  "2026.01.10 - 01.11",
   "YB REMASTERED 3.0 : Odyssey 원주",
   "강원 원주",
   "백운아트홀",
@@ -508,12 +646,17 @@ const data=[
 ];
 
 
+/* 화면 요소 */
+
 let type="전체";
 
 const list=document.querySelector("#list");
 const q=document.querySelector("#q");
+
 const home=document.querySelector("#home");
 const detail=document.querySelector("#detail");
+const songStats=document.querySelector("#songStats");
+const songDetail=document.querySelector("#songDetail");
 
 const dd=document.querySelector("#dd");
 const dt=document.querySelector("#dt");
@@ -523,6 +666,32 @@ const songs=document.querySelector("#songs");
 const cc=document.querySelector("#cc");
 const sc=document.querySelector("#sc");
 
+const songRanking=
+  document.querySelector("#songRanking");
+
+const songDetailName=
+  document.querySelector("#songDetailName");
+
+const songDetailCount=
+  document.querySelector("#songDetailCount");
+
+const songPerformances=
+  document.querySelector("#songPerformances");
+
+
+/* 모든 화면 숨기기 */
+
+function hideAll(){
+
+  home.style.display="none";
+  detail.style.display="none";
+  songStats.style.display="none";
+  songDetail.style.display="none";
+
+}
+
+
+/* 메인 공연 목록 */
 
 function draw(){
 
@@ -549,7 +718,9 @@ function draw(){
     ){
 
       list.innerHTML+=`
-        <div class="card" onclick="openC(${i})">
+        <div
+          class="card"
+          onclick="openC(${i})">
 
           <div class="date">
             ${x[0]}
@@ -571,12 +742,16 @@ function draw(){
   });
 
   if(!list.innerHTML){
+
     list.innerHTML=
       '<p class="empty">검색 결과가 없습니다.</p>';
+
   }
 
 }
 
+
+/* 공연 종류 필터 */
 
 function ft(t,b){
 
@@ -593,11 +768,14 @@ function ft(t,b){
 }
 
 
+/* 공연 상세 */
+
 function openC(i){
 
   const x=data[i];
 
-  home.style.display="none";
+  hideAll();
+
   detail.style.display="block";
 
   dd.innerText=x[0];
@@ -628,9 +806,12 @@ function openC(i){
 }
 
 
-function back(){
+/* 메인으로 */
 
-  detail.style.display="none";
+function showHome(){
+
+  hideAll();
+
   home.style.display="block";
 
   window.scrollTo(0,0);
@@ -638,10 +819,158 @@ function back(){
 }
 
 
+/* 곡별 공연 횟수 계산 */
+
+function getSongStats(){
+
+  const stats={};
+
+  data.forEach((concert,concertIndex)=>{
+
+    /*
+    같은 공연에서 같은 곡이 두 번 있어도
+    공연 횟수는 1회로 계산
+    */
+
+    const uniqueSongs=
+      [...new Set(concert[5])];
+
+    uniqueSongs.forEach(song=>{
+
+      if(!stats[song]){
+
+        stats[song]={
+          count:0,
+          concerts:[]
+        };
+
+      }
+
+      stats[song].count++;
+
+      stats[song].concerts.push(concertIndex);
+
+    });
+
+  });
+
+  return stats;
+
+}
+
+
+/* 곡별 통계 페이지 */
+
+function openSongStats(){
+
+  hideAll();
+
+  songStats.style.display="block";
+
+  const stats=getSongStats();
+
+  const ranking=
+    Object.entries(stats)
+      .sort((a,b)=>{
+
+        if(b[1].count!==a[1].count){
+          return b[1].count-a[1].count;
+        }
+
+        return a[0].localeCompare(
+          b[0],
+          "ko"
+        );
+
+      });
+
+  songRanking.innerHTML=
+    ranking
+      .map(([song,info],index)=>`
+
+        <div
+          class="song-rank"
+          onclick='openSongDetail(${JSON.stringify(song)})'>
+
+          <div class="rank">
+            ${String(index+1).padStart(2,"0")}
+          </div>
+
+          <div class="rank-name">
+            ${song}
+          </div>
+
+          <div class="rank-count">
+            ${info.count}회
+          </div>
+
+        </div>
+
+      `)
+      .join("");
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* 특정 곡 상세 */
+
+function openSongDetail(song){
+
+  const stats=getSongStats();
+
+  const info=stats[song];
+
+  hideAll();
+
+  songDetail.style.display="block";
+
+  songDetailName.innerText=song;
+
+  songDetailCount.innerText=
+    `${info.count}회 공연`;
+
+  songPerformances.innerHTML=
+    info.concerts
+      .map(i=>{
+
+        const x=data[i];
+
+        return `
+          <div
+            class="performance-item"
+            onclick="openC(${i})">
+
+            <div class="performance-date">
+              ${x[0]}
+            </div>
+
+            <div class="performance-title">
+              ${x[1]}
+            </div>
+
+            <div class="performance-place">
+              ${x[2]} · ${x[3]}
+            </div>
+
+          </div>
+        `;
+
+      })
+      .join("");
+
+  window.scrollTo(0,0);
+
+}
+
+
+/* 검색 */
+
 q.oninput=draw;
 
 
-/* 통계 */
+/* 메인 통계 */
 
 cc.innerText=data.length;
 
@@ -651,9 +980,11 @@ sc.innerText=
   ).size;
 
 
+/* 시작 */
+
 draw();
 
 </script>
 
 </body>
-</html>
+  </html>   
