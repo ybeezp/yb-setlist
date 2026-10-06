@@ -6,7 +6,9 @@
 <title>YB SETLIST ARCHIVE</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 body{
   margin:0;
@@ -24,7 +26,9 @@ header{
   letter-spacing:-.5px;
 }
 
-header b{color:#ff3045}
+header b{
+  color:#ff3045;
+}
 
 main{
   max-width:760px;
@@ -34,7 +38,9 @@ main{
 
 /* 메인 */
 
-.hero{padding:55px 0 45px}
+.hero{
+  padding:55px 0 45px;
+}
 
 .yb-logo{
   display:block;
@@ -57,7 +63,9 @@ main{
   letter-spacing:-2px;
 }
 
-.red{color:#ff3045}
+.red{
+  color:#ff3045;
+}
 
 .hero p{
   color:#8d8d8d;
@@ -66,7 +74,7 @@ main{
   margin:24px 0 0;
 }
 
-/* 메인 통계 */
+/* 통계 */
 
 .stats{
   display:grid;
@@ -109,7 +117,9 @@ main{
   outline:none;
 }
 
-.search::placeholder{color:#777}
+.search::placeholder{
+  color:#777;
+}
 
 /* 필터 */
 
@@ -117,11 +127,13 @@ main{
   display:flex;
   gap:8px;
   overflow-x:auto;
-  padding:17px 0 25px;
+  padding:17px 0 40px;
   scrollbar-width:none;
 }
 
-.filters::-webkit-scrollbar{display:none}
+.filters::-webkit-scrollbar{
+  display:none;
+}
 
 .filters button{
   flex:none;
@@ -137,27 +149,6 @@ main{
   background:#ff3045;
   border-color:#ff3045;
   color:white;
-}
-
-/* 곡별 통계 버튼 */
-
-.song-stats-button{
-  width:100%;
-  border:1px solid #383838;
-  background:#101010;
-  color:#eee;
-  border-radius:13px;
-  padding:17px 18px;
-  margin:0 0 40px;
-  text-align:left;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-}
-
-.song-stats-button span{
-  float:right;
-  color:#ff3045;
 }
 
 /* 공연 목록 */
@@ -176,7 +167,9 @@ main{
   background:#0c0c0c;
 }
 
-.card:active{background:#151515}
+.card:active{
+  background:#151515;
+}
 
 .card .date{
   color:#ff3045;
@@ -197,11 +190,9 @@ main{
   line-height:1.6;
 }
 
-/* 공통 서브페이지 */
+/* 상세 */
 
-#detail,
-#songStats,
-#songDetail{
+#detail{
   display:none;
   padding-top:38px;
 }
@@ -221,8 +212,7 @@ main{
   margin-bottom:18px;
 }
 
-#detail h1,
-#songDetail h1{
+#detail h1{
   font-size:32px;
   line-height:1.25;
   margin:0 0 20px;
@@ -232,15 +222,23 @@ main{
   color:#888;
   font-size:15px;
   line-height:1.8;
-  margin-bottom:45px;
+  margin-bottom:30px;
+}
+
+/* 공연 대표사진 */
+
+.concert-img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:14px;
+  margin:0 0 40px;
 }
 
 .set-title{
   font-size:25px;
   margin-bottom:18px;
 }
-
-/* 셋리스트 */
 
 .song{
   display:flex;
@@ -256,109 +254,21 @@ main{
 .song-num{
   color:#ff3045;
   width:48px;
+  flex:none;
   font-size:17px;
   font-weight:700;
 }
 
-.song-name{font-size:17px}
-
-/* 곡별 통계 */
-
-.stats-header{
-  margin-bottom:30px;
-}
-
-.stats-header small{
-  color:#ff3045;
-  font-weight:700;
-  font-size:13px;
-}
-
-.stats-header h1{
-  font-size:35px;
-  margin:8px 0 10px;
-}
-
-.stats-header p{
-  color:#777;
-  line-height:1.6;
-  margin:0;
-}
-
-.song-rank{
-  display:flex;
-  align-items:center;
-  padding:18px 4px;
-  border-top:1px solid #292929;
-  cursor:pointer;
-}
-
-.song-rank:last-child{
-  border-bottom:1px solid #292929;
-}
-
-.rank{
-  width:42px;
-  color:#666;
-  font-size:14px;
-  font-weight:700;
-}
-
-.rank-name{
-  flex:1;
-  font-size:16px;
-  font-weight:600;
-  padding-right:10px;
-}
-
-.rank-count{
-  color:#ff3045;
-  font-size:15px;
-  font-weight:700;
-  white-space:nowrap;
-}
-
-/* 곡 상세 */
-
-.song-total{
-  color:#ff3045;
-  font-weight:700;
-  margin-bottom:35px;
-}
-
-.performance-item{
-  border-top:1px solid #292929;
-  padding:18px 2px;
-  cursor:pointer;
-}
-
-.performance-item:last-child{
-  border-bottom:1px solid #292929;
-}
-
-.performance-date{
-  color:#ff3045;
-  font-size:13px;
-  font-weight:700;
-  margin-bottom:7px;
-}
-
-.performance-title{
-  font-size:16px;
-  font-weight:600;
-  line-height:1.4;
-}
-
-.performance-place{
-  color:#777;
-  font-size:13px;
-  margin-top:6px;
+.song-name{
+  font-size:17px;
 }
 
 .empty{
   color:#777;
   padding:20px 0;
 }
+
+/* 푸터 */
 
 footer{
   max-width:760px;
@@ -378,17 +288,19 @@ footer{
 
 <main>
 
-<!-- 메인 -->
-
 <section id="home">
 
   <div class="hero">
 
-    <img src="yb.logo.png"
-         alt="YB Logo"
-         class="yb-logo">
+    <img
+      src="yb.logo.png"
+      alt="YB Logo"
+      class="yb-logo"
+    >
 
-    <small>2026 YB PERFORMANCE ARCHIVE</small>
+    <small>
+      2026 YB PERFORMANCE ARCHIVE
+    </small>
 
     <h1>
       LIVE SETLIST<br>
@@ -424,20 +336,27 @@ footer{
 
   <div class="filters">
 
-    <button class="on" onclick="ft('전체',this)">전체</button>
-    <button onclick="ft('단독공연',this)">단독공연</button>
-    <button onclick="ft('페스티벌',this)">페스티벌</button>
-    <button onclick="ft('대학축제',this)">대학축제</button>
-    <button onclick="ft('행사',this)">행사</button>
+    <button class="on" onclick="ft('전체',this)">
+      전체
+    </button>
+
+    <button onclick="ft('단독공연',this)">
+      단독공연
+    </button>
+
+    <button onclick="ft('페스티벌',this)">
+      페스티벌
+    </button>
+
+    <button onclick="ft('대학축제',this)">
+      대학축제
+    </button>
+
+    <button onclick="ft('행사',this)">
+      행사
+    </button>
 
   </div>
-
-  <button
-    class="song-stats-button"
-    onclick="openSongStats()">
-    곡별 공연 횟수
-    <span>→</span>
-  </button>
 
   <h2 class="section-title">
     공연 기록
@@ -448,71 +367,35 @@ footer{
 </section>
 
 
-<!-- 공연 상세 -->
-
 <section id="detail">
 
-  <div class="back" onclick="showHome()">
+  <div class="back" onclick="back()">
     ← 공연 목록
   </div>
 
-  <div id="dd" class="detail-date"></div>
+  <div
+    id="dd"
+    class="detail-date">
+  </div>
 
   <h1 id="dt"></h1>
 
-  <div id="dm" class="detail-info"></div>
+  <div
+    id="dm"
+    class="detail-info">
+  </div>
+
+  <img
+    id="concert-img"
+    class="concert-img"
+    alt="공연 대표 사진"
+  >
 
   <h2 class="set-title">
     SETLIST
   </h2>
 
   <div id="songs"></div>
-
-</section>
-
-
-<!-- 곡별 통계 -->
-
-<section id="songStats">
-
-  <div class="back" onclick="showHome()">
-    ← 메인으로
-  </div>
-
-  <div class="stats-header">
-
-    <small>2026 YB SETLIST</small>
-
-    <h1>곡별 공연 횟수</h1>
-
-    <p>
-      2026년 등록된 공연을 기준으로 계산합니다.<br>
-      곡을 누르면 해당 곡의 공연 기록을 볼 수 있습니다.
-    </p>
-
-  </div>
-
-  <div id="songRanking"></div>
-
-</section>
-
-
-<!-- 곡 상세 -->
-
-<section id="songDetail">
-
-  <div class="back" onclick="openSongStats()">
-    ← 곡별 통계
-  </div>
-
-  <h1 id="songDetailName"></h1>
-
-  <div
-    id="songDetailCount"
-    class="song-total">
-  </div>
-
-  <div id="songPerformances"></div>
 
 </section>
 
@@ -530,73 +413,29 @@ footer{
 데이터 형식
 
 [
- "날짜",
- "공연명",
- "지역",
- "장소",
- "분류",
- ["곡1","곡2"...]
+  "날짜",
+  "공연명",
+  "지역",
+  "장소",
+  "분류",
+  "사진 파일명",
+  ["곡1","곡2"...]
 ]
 
+사진이 없으면 사진 파일명에 "" 입력
 */
 
 const data=[
 
-[
-  "2026.09.17",
-  "안녕?여름, 안녕?가을 계룡 축제",
-  "충남 계룡",
-  "계룡시민체육관",
-  "행사",
-  [
-    "박하사탕",
-    "나는 나비",
-    "잊을게",
-    "사랑했나봐",
-    "담배가게 아가씨",
-    "Rebellion",
-    "흰수염고래",
-    "It Burns"
-  ]
-],
-  
-[
-  "2026.01.31 - 02.01",
-  "YB REMASTERED 3.0 : Odyssey 의정부",
-  "경기 의정부",
-  "의정부예술의전당 대극장",
-  "단독공연",
-  [
-    "긴 여행",
-    "꿈꾸는 소녀",
-    "박하사탕",
-    "사랑two",
-    "너를 보내고",
-    "가을 우체국 앞에서",
-    "먼 훗날",
-    "타잔",
-    "가리지좀 마",
-    "나는 나비",
-    "Rebellion",
-    "Stormborn",
-    "Orchid",
-    "Golden (케이팝데몬헌터스)",
-    "모나리자 (조용필)",
-    "담배가게 아가씨",
-    "난 멋있어",
-    "It Burns",
-    "흰수염고래",
-    "사랑했나봐",
-    "우리들 함께 여기에"
-  ]
-],
+/* 1월 3일 강릉 */
 
 [
-  "2026.01.24 - 01.25",
-  "YB REMASTERED 3.0 : Transcendent 대전",
-  "대전",
-  "대전컨벤션센터 제1전시장",
+  "2026.01.03",
+  "YB REMASTERED 3.0 : Transcendent 강릉",
+  "강원 강릉",
+  "가톨릭관동대학교 세바스티아노스포츠센터",
   "단독공연",
+  "20260103.jpg",
   [
     "Voyeurist",
     "Orchid",
@@ -604,12 +443,12 @@ const data=[
     "Rebellion",
     "야간마차",
     "바람",
-    "가리지좀 마",
+    "가리지좀마",
     "타잔",
     "박하사탕",
     "잊을게",
     "사랑two",
-    "너를 보내고",
+    "너를보내고",
     "가을 우체국 앞에서",
     "Golden (케이팝데몬헌터스)",
     "모나리자 (조용필)",
@@ -624,69 +463,7 @@ const data=[
   ]
 ],
 
-[
-  "2026.01.17 - 01.18",
-  "YB REMASTERED 3.0 : Transcendent 포항",
-  "경북 포항",
-  "포항실내체육관",
-  "단독공연",
-  [
-    "Voyeurist",
-    "Orchid",
-    "Stormborn",
-    "Rebellion",
-    "야간마차",
-    "바람",
-    "가리지좀 마",
-    "타잔",
-    "박하사탕",
-    "잊을게",
-    "사랑two",
-    "너를 보내고",
-    "가을 우체국 앞에서",
-    "Golden (케이팝데몬헌터스)",
-    "모나리자 (조용필)",
-    "88만원의 Losing game",
-    "Stay Alive",
-    "담배가게 아가씨",
-    "난 멋있어",
-    "It Burns",
-    "흰수염고래",
-    "사랑했나봐",
-    "나는 나비"
-  ]
-],
-  
-[
-  "2026.01.10 - 01.11",
-  "YB REMASTERED 3.0 : Odyssey 원주",
-  "강원 원주",
-  "백운아트홀",
-  "단독공연",
-  [
-    "긴 여행",
-    "꿈꾸는 소녀",
-    "박하사탕",
-    "사랑two",
-    "너를 보내고",
-    "가을 우체국 앞에서",
-    "먼 훗날",
-    "타잔",
-    "가리지좀 마",
-    "나는 나비",
-    "Rebellion",
-    "Stormborn",
-    "Orchid",
-    "Golden (케이팝데몬헌터스)",
-    "모나리자 (조용필)",
-    "담배가게 아가씨",
-    "난 멋있어",
-    "It Burns",
-    "흰수염고래",
-    "사랑했나봐",
-    "우리들 함께 여기에"
-  ]
-],
+/* 1월 6일 홍대 */
 
 [
   "2026.01.06",
@@ -694,6 +471,7 @@ const data=[
   "서울",
   "KT&G 상상마당 홍대 라이브홀",
   "페스티벌",
+  "20260106.jpg",
   [
     "Voyeurist",
     "Orchid",
@@ -707,12 +485,49 @@ const data=[
   ]
 ],
 
+/* 1월 10일 - 11일 원주 */
+
 [
-  "2026.01.03",
-  "YB REMASTERED 3.0 : Transcendent 강릉",
-  "강원 강릉",
-  "가톨릭관동대학교 세바스티아노스포츠센터",
+  "2026.01.10 - 01.11",
+  "YB REMASTERED 3.0 : Odyssey 원주",
+  "강원 원주",
+  "백운아트홀",
   "단독공연",
+  "20260110.jpg",
+  [
+    "긴 여행",
+    "꿈꾸는 소녀",
+    "박하사탕",
+    "사랑two",
+    "너를 보내고",
+    "가을 우체국 앞에서",
+    "먼 훗날",
+    "타잔",
+    "가리지좀 마",
+    "나는 나비",
+    "Rebellion",
+    "Stormborn",
+    "Orchid",
+    "Golden (케이팝데몬헌터스)",
+    "모나리자 (조용필)",
+    "담배가게 아가씨",
+    "난 멋있어",
+    "It Burns",
+    "흰수염고래",
+    "사랑했나봐",
+    "우리들 함께 여기에"
+  ]
+],
+
+/* 1월 17일 - 18일 포항 */
+
+[
+  "2026.01.17 - 01.18",
+  "YB REMASTERED 3.0 : Transcendent 포항",
+  "경북 포항",
+  "포항실내체육관",
+  "단독공연",
+  "20260117.jpg",
   [
     "Voyeurist",
     "Orchid",
@@ -720,12 +535,12 @@ const data=[
     "Rebellion",
     "야간마차",
     "바람",
-    "가리지좀 마",
+    "가리지좀마",
     "타잔",
     "박하사탕",
     "잊을게",
     "사랑two",
-    "너를 보내고",
+    "너를보내고",
     "가을 우체국 앞에서",
     "Golden (케이팝데몬헌터스)",
     "모나리자 (조용필)",
@@ -738,65 +553,134 @@ const data=[
     "사랑했나봐",
     "나는 나비"
   ]
+],
+
+/* 1월 24일 - 25일 대전 */
+
+[
+  "2026.01.24 - 01.25",
+  "YB REMASTERED 3.0 : Transcendent 대전",
+  "대전",
+  "대전컨벤션 제1전시장",
+  "단독공연",
+  "20260124.jpg",
+  [
+    "Voyeurist",
+    "Orchid",
+    "Stormborn",
+    "Rebellion",
+    "야간마차",
+    "바람",
+    "가리지좀마",
+    "타잔",
+    "박하사탕",
+    "잊을게",
+    "사랑two",
+    "너를보내고",
+    "가을 우체국 앞에서",
+    "Golden (케이팝데몬헌터스)",
+    "모나리자 (조용필)",
+    "88만원의 Losing game",
+    "Stay Alive",
+    "담배가게 아가씨",
+    "난 멋있어",
+    "It Burns",
+    "흰수염고래",
+    "사랑했나봐",
+    "나는 나비"
+  ]
+],
+
+/* 1월 31일 - 2월 1일 의정부 */
+
+[
+  "2026.01.31 - 02.01",
+  "YB REMASTERED 3.0 : Odyssey 의정부",
+  "경기 의정부",
+  "의정부 예술의전당 대극장",
+  "단독공연",
+  "20260201.jpg",
+  [
+    "긴 여행",
+    "꿈꾸는 소녀",
+    "박하사탕",
+    "사랑two",
+    "너를 보내고",
+    "가을 우체국 앞에서",
+    "먼 훗날",
+    "타잔",
+    "가리지좀 마",
+    "나는 나비",
+    "Rebellion",
+    "Stormborn",
+    "Orchid",
+    "Golden (케이팝데몬헌터스)",
+    "모나리자 (조용필)",
+    "담배가게 아가씨",
+    "난 멋있어",
+    "It Burns",
+    "흰수염고래",
+    "사랑했나봐",
+    "우리들 함께 여기에"
+  ]
+],
+
+/* 9월 17일 계룡 */
+
+[
+  "2026.09.17",
+  "안녕?여름, 안녕?가을 계룡 축제",
+  "충남 계룡",
+  "계룡시민체육관",
+  "행사",
+  "20260917.jpg",
+  [
+    "박하사탕",
+    "나는 나비",
+    "잊을게",
+    "사랑했나봐",
+    "담배가게 아가씨",
+    "Rebellion",
+    "흰수염고래",
+    "It Burns"
+  ]
 ]
 
 ];
 
 
-/* 화면 요소 */
-
 let type="전체";
 
 const list=document.querySelector("#list");
 const q=document.querySelector("#q");
-
 const home=document.querySelector("#home");
 const detail=document.querySelector("#detail");
-const songStats=document.querySelector("#songStats");
-const songDetail=document.querySelector("#songDetail");
 
 const dd=document.querySelector("#dd");
 const dt=document.querySelector("#dt");
 const dm=document.querySelector("#dm");
+const concertImg=document.querySelector("#concert-img");
 const songs=document.querySelector("#songs");
 
 const cc=document.querySelector("#cc");
 const sc=document.querySelector("#sc");
 
-const songRanking=
-  document.querySelector("#songRanking");
-
-const songDetailName=
-  document.querySelector("#songDetailName");
-
-const songDetailCount=
-  document.querySelector("#songDetailCount");
-
-const songPerformances=
-  document.querySelector("#songPerformances");
-
-
-/* 모든 화면 숨기기 */
-
-function hideAll(){
-
-  home.style.display="none";
-  detail.style.display="none";
-  songStats.style.display="none";
-  songDetail.style.display="none";
-
-}
-
-
-/* 메인 공연 목록 */
 
 function draw(){
 
   const k=q.value.toLowerCase();
 
-  list.innerHTML="";
+list.innerHTML="";
 
-  data.forEach((x,i)=>{
+const sortedData = data
+  .map((x,i)=>({x,i}))
+  .sort((a,b)=>{
+    const dateA=a.x[0].slice(0,10).replaceAll(".","-");
+    const dateB=b.x[0].slice(0,10).replaceAll(".","-");
+    return dateB.localeCompare(dateA);
+  });
+
+sortedData.forEach(({x,i})=>{
 
     const searchText=
       (
@@ -805,7 +689,7 @@ function draw(){
         x[2]+" "+
         x[3]+" "+
         x[4]+" "+
-        x[5].join(" ")
+        x[6].join(" ")
       ).toLowerCase();
 
     if(
@@ -815,9 +699,7 @@ function draw(){
     ){
 
       list.innerHTML+=`
-        <div
-          class="card"
-          onclick="openC(${i})">
+        <div class="card" onclick="openC(${i})">
 
           <div class="date">
             ${x[0]}
@@ -839,16 +721,12 @@ function draw(){
   });
 
   if(!list.innerHTML){
-
     list.innerHTML=
       '<p class="empty">검색 결과가 없습니다.</p>';
-
   }
 
 }
 
-
-/* 공연 종류 필터 */
 
 function ft(t,b){
 
@@ -865,14 +743,11 @@ function ft(t,b){
 }
 
 
-/* 공연 상세 */
-
 function openC(i){
 
   const x=data[i];
 
-  hideAll();
-
+  home.style.display="none";
   detail.style.display="block";
 
   dd.innerText=x[0];
@@ -881,8 +756,21 @@ function openC(i){
   dm.innerHTML=
     `${x[2]}<br>${x[3]} · ${x[4]}`;
 
+  /* 대표사진 */
+
+  if(x[5]){
+    concertImg.src=x[5];
+    concertImg.alt=x[1]+" 대표 사진";
+    concertImg.style.display="block";
+  }else{
+    concertImg.removeAttribute("src");
+    concertImg.style.display="none";
+  }
+
+  /* 셋리스트 */
+
   songs.innerHTML=
-    x[5]
+    x[6]
       .map((s,n)=>`
         <div class="song">
 
@@ -903,12 +791,9 @@ function openC(i){
 }
 
 
-/* 메인으로 */
+function back(){
 
-function showHome(){
-
-  hideAll();
-
+  detail.style.display="none";
   home.style.display="block";
 
   window.scrollTo(0,0);
@@ -916,172 +801,22 @@ function showHome(){
 }
 
 
-/* 곡별 공연 횟수 계산 */
-
-function getSongStats(){
-
-  const stats={};
-
-  data.forEach((concert,concertIndex)=>{
-
-    /*
-    같은 공연에서 같은 곡이 두 번 있어도
-    공연 횟수는 1회로 계산
-    */
-
-    const uniqueSongs=
-      [...new Set(concert[5])];
-
-    uniqueSongs.forEach(song=>{
-
-      if(!stats[song]){
-
-        stats[song]={
-          count:0,
-          concerts:[]
-        };
-
-      }
-
-      stats[song].count++;
-
-      stats[song].concerts.push(concertIndex);
-
-    });
-
-  });
-
-  return stats;
-
-}
-
-
-/* 곡별 통계 페이지 */
-
-function openSongStats(){
-
-  hideAll();
-
-  songStats.style.display="block";
-
-  const stats=getSongStats();
-
-  const ranking=
-    Object.entries(stats)
-      .sort((a,b)=>{
-
-        if(b[1].count!==a[1].count){
-          return b[1].count-a[1].count;
-        }
-
-        return a[0].localeCompare(
-          b[0],
-          "ko"
-        );
-
-      });
-
-  songRanking.innerHTML=
-    ranking
-      .map(([song,info],index)=>`
-
-        <div
-          class="song-rank"
-          onclick='openSongDetail(${JSON.stringify(song)})'>
-
-          <div class="rank">
-            ${String(index+1).padStart(2,"0")}
-          </div>
-
-          <div class="rank-name">
-            ${song}
-          </div>
-
-          <div class="rank-count">
-            ${info.count}회
-          </div>
-
-        </div>
-
-      `)
-      .join("");
-
-  window.scrollTo(0,0);
-
-}
-
-
-/* 특정 곡 상세 */
-
-function openSongDetail(song){
-
-  const stats=getSongStats();
-
-  const info=stats[song];
-
-  hideAll();
-
-  songDetail.style.display="block";
-
-  songDetailName.innerText=song;
-
-  songDetailCount.innerText=
-    `${info.count}회 공연`;
-
-  songPerformances.innerHTML=
-    info.concerts
-      .map(i=>{
-
-        const x=data[i];
-
-        return `
-          <div
-            class="performance-item"
-            onclick="openC(${i})">
-
-            <div class="performance-date">
-              ${x[0]}
-            </div>
-
-            <div class="performance-title">
-              ${x[1]}
-            </div>
-
-            <div class="performance-place">
-              ${x[2]} · ${x[3]}
-            </div>
-
-          </div>
-        `;
-
-      })
-      .join("");
-
-  window.scrollTo(0,0);
-
-}
-
-
-/* 검색 */
-
 q.oninput=draw;
 
 
-/* 메인 통계 */
+/* 통계 */
 
 cc.innerText=data.length;
 
 sc.innerText=
   new Set(
-    data.flatMap(x=>x[5])
+    data.flatMap(x=>x[6])
   ).size;
 
-
-/* 시작 */
 
 draw();
 
 </script>
 
 </body>
-  </html>   
+</html>
