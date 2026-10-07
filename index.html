@@ -367,7 +367,29 @@ main{
 .setlist-report a:active{
   color:#ff3045;
 }
+/* 이전·다음 공연 버튼 */
+.detail-nav{
+  display:flex;
+  gap:10px;
+  margin-top:24px;
+}
 
+.detail-nav button{
+  flex:1;
+  padding:15px 10px;
+  border:1px solid #333;
+  border-radius:12px;
+  background:#0c0c0c;
+  color:#aaa;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.detail-nav button:active{
+  background:#151515;
+  color:#ff3045;
+}
 /* 곡별 통계 */
 
 .stats-kicker{
@@ -618,6 +640,10 @@ footer{
   </h2>
 
   <div id="songs"></div>
+  <div class="detail-nav">
+  <button id="prevPerformance">← 이전 공연</button>
+  <button id="nextPerformance">다음 공연 →</button>
+  </div>
 <div class="setlist-report">
   셋리스트 오류 및 누락 제보 ·
   <a href="https://www.instagram.com/yb.rstar/" target="_blank">
@@ -2411,7 +2437,16 @@ function openC(i){
       .join("");
 
   }
+const prevBtn = document.getElementById("prevPerformance");
+const nextBtn = document.getElementById("nextPerformance");
 
+prevBtn.onclick = () => {
+  if(i > 0) openC(i - 1);
+};
+
+nextBtn.onclick = () => {
+  if(i < data.length - 1) openC(i + 1);
+};
   window.scrollTo(0,0);
 
 }
