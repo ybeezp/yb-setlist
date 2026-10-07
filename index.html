@@ -246,7 +246,16 @@ main{
   font-weight:700;
   margin-bottom:9px;
 }
-
+.status{
+  display:inline-block;
+  margin-top:10px;
+  padding:5px 10px;
+  border-radius:20px;
+  background:#2a2a2a;
+  color:#ff3045;
+  font-size:12px;
+  font-weight:600;
+}
 .card h3{
   margin:0 0 9px;
   font-size:20px;
@@ -701,7 +710,7 @@ const data=[
     "흰수염고래",
     "돌고돌고돌고"
   ],
-  "순서미확인"
+  "순서 미확인"
 ],
 /* 5/22 괴산 빨간맛 페스티벌 */
 
@@ -812,7 +821,7 @@ const data=[
     "나는 나비",
     "돌고돌고돌고"
   ],
-  "순서미확인"
+  "순서 미확인"
 ],
 
 [
@@ -2294,7 +2303,7 @@ sortedData.forEach((x)=>{
           <p>
             ${x[2]} · ${x[3]} · ${x[4]}
           </p>
-
+${x[7] ? `<div class="status">${x[7]}</div>` : ""}
         </div>
       `;
 
