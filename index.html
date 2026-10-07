@@ -149,7 +149,7 @@ main{
   border:1px solid #333;
   border-radius:15px;
   padding:21px 20px;
-  margin:0 0 42px;
+  margin:0 0 24px;
   display:flex;
   align-items:center;
   justify-content:space-between;
@@ -528,7 +528,12 @@ footer{
     </div>
 
   </div>
-
+  
+<div class="song-stats-link" onclick="openSongStats()">
+  <strong>곡별 공연 횟수</strong>
+  <span>→</span>
+</div>
+  
   <input
     id="q"
     class="search"
@@ -559,10 +564,7 @@ footer{
 
   </div>
 
-  <div class="song-stats-link" onclick="openSongStats()">
-    <strong>곡별 공연 횟수</strong>
-    <span>→</span>
-  </div>
+  
 
   <h2 class="section-title">
   공연 기록
