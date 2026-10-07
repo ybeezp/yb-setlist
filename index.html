@@ -352,6 +352,15 @@ main{
   font-weight:700;
   margin:0 0 18px;
   }
+  .exit-song-title{
+  margin-top:24px;
+  padding-top:18px;
+  border-top:1px solid #222;
+  color:#ff3045;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:1px;
+  }
   .setlist-report{
   margin-top:24px;
   color:#666;
@@ -736,6 +745,8 @@ const data=[
     "사랑two",
     "너를 보내고"
   ]
+    "",
+    "광야에서"
 ],
   /* 9/3 천안 K-컬처박람회 - 순서 미확인 */
 
@@ -2456,6 +2467,15 @@ function openC(i){
       `)
       .join("");
 
+  }
+  if(x[8]){
+  songs.innerHTML += `
+    <div class="exit-song-title">퇴장곡</div>
+    <div class="song">
+      <div class="song-num">—</div>
+      <div class="song-name">${x[8]}</div>
+    </div>
+  `;
   }
 const prevBtn = document.getElementById("prevPerformance");
 const nextBtn = document.getElementById("nextPerformance");
