@@ -168,6 +168,28 @@ main{
 .song-stats-link span{
   color:#ff3045;
   font-size:26px;
+}/* 정렬 버튼 */
+
+.sort-buttons{
+  display:flex;
+  gap:8px;
+  margin:0 0 16px;
+}
+
+.sort-buttons button{
+  border:1px solid #383838;
+  background:#171717;
+  color:#aaa;
+  padding:10px 16px;
+  border-radius:30px;
+  font-size:13px;
+  cursor:pointer;
+}
+
+.sort-buttons button.on{
+  background:#ff3045;
+  border-color:#ff3045;
+  color:white;
 }
 /* 월별 필터 */
 
@@ -545,7 +567,15 @@ footer{
   <h2 class="section-title">
   공연 기록
 </h2>
+<div class="sort-buttons">
+  <button class="on" onclick="changeSort('old', this)">
+    오래된순
+  </button>
 
+  <button onclick="changeSort('new', this)">
+    최신순
+  </button>
+</div>
 <div id="monthFilters" class="month-filters"></div>
 
 <div id="list"></div>
@@ -2094,7 +2124,8 @@ data.sort((a,b)=>dateKey(a)-dateKey(b));
 
 let type="전체";
 let month="전체";
-
+let sortOrder="old";
+  
 const home=document.querySelector("#home");
 const detail=document.querySelector("#detail");
 const songStats=document.querySelector("#songStats");
@@ -2189,7 +2220,21 @@ function fm(m,b){
 
 }
 
+/* 공연 정렬 */
 
+function changeSort(order,b){
+
+  sortOrder=order;
+
+  document
+    .querySelectorAll(".sort-buttons button")
+    .forEach(x=>x.classList.remove("on"));
+
+  b.classList.add("on");
+
+  draw();
+
+}
 /* 메인 공연 목록 */
 
 function draw(){
@@ -2198,7 +2243,13 @@ function draw(){
 
   list.innerHTML="";
 
-  data.forEach((x,i)=>{
+  const sortedData=[...data].sort((a,b)=>
+  sortOrder==="old"
+    ? dateKey(a)-dateKey(b)
+    : dateKey(b)-dateKey(a)
+);
+
+sortedData.forEach((x)=>{
 
     const searchText=(
       x[0]+" "+
@@ -2228,7 +2279,7 @@ function draw(){
     ){
 
       list.innerHTML+=`
-        <div class="card" onclick="openC(${i})">
+        <div class="card" onclick="openC(data.indexOf(x))">
 
           <div class="date">
             ${x[0]}
