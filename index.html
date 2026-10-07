@@ -2281,7 +2281,7 @@ sortedData.forEach((x)=>{
     ){
 
       list.innerHTML+=`
-        <div class="card" onclick="openC(data.indexOf(x))">
+        <div class="card" onclick="openC(${data.indexOf(x)})">
 
           <div class="date">
             ${x[0]}
